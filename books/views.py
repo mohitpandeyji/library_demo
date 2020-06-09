@@ -41,8 +41,8 @@ class BookView(APIView):
         return Response(BookSerializer(data).data, status=status.HTTP_200_OK)
 
     def delete(self, request):
-        device = get_object_or_404(Book, pk=request.data['id'])
-        device.delete()
+        book = get_object_or_404(Book, pk=request.data['id'])
+        book.delete()
         return Response({"message": "Book with id `{}` has been deleted.".format(request.data['id'])}, status=204)
 
 
